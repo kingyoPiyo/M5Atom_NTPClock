@@ -65,7 +65,7 @@ void setup()
 
 void loop()
 {
-    char szTime[32];
+    char str_buf[32];
     struct tm timeinfo;
     static int tm_sec_old;
 
@@ -75,11 +75,11 @@ void loop()
         display.clearDisplay();
         display.setTextSize(2);
         display.setCursor(0, 0);
-        sprintf(szTime, "%02d:%02d:%02d",
+        sprintf(str_buf, "%02d:%02d:%02d",
             timeinfo.tm_hour,
             timeinfo.tm_min,
             timeinfo.tm_sec);
-        display.println(String(szTime));
+        display.println(String(str_buf));
         display.display();
         tm_sec_old = timeinfo.tm_sec;
     }
